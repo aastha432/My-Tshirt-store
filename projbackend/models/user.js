@@ -44,12 +44,13 @@ const opts = { toJSON: { virtuals: true } };
  { timestamps: true},opts);
 
 
+// Create a virtual property `password` that's computed from `encry_password`.
 
  userSchema.virtual("password")
     .set(function(password){
-        this._password = password
+        this._password = password  //while entering details "password" is set not "encry_password"
         this.salt = uuidv4();
-        this.encry_password = this.securePassword(password);
+        this.encry_password = this.securePassword(password); //encry_password is stored in db
     })
     .get(function(){
         return this._password
@@ -58,18 +59,12 @@ const opts = { toJSON: { virtuals: true } };
  userSchema.methods = {
 
     authenticate: function(plainpassword){
-        //console.log(typeof(JSON.stringify(this.securePassword(plainpassword))))
-      //  console.log(typeof(this.encry_password))
-        //console.log(`secure str - ${JSON.stringify(this.securePassword(plainpassword))}`)
-       // console.log(`secure obj - ${this.securePassword(plainpassword)}`)
-       // console.log(`encry - ${this.encry_password}`)
         return this.securePassword(plainpassword) == this.encry_password
     },
 
     securePassword: function(plainpassword){
          if(!plainpassword) return " ";
          try {
-            //return CryptoJS.AES.encrypt(plainpassword, this.salt).toString(); //this genereated different encryption everytime, never use this
             return CryptoJS.HmacSHA1(plainpassword, this.salt);
           } catch (err) {
             return ""
