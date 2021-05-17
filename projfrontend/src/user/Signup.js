@@ -24,7 +24,6 @@ const Signup = () => {
     signup({ name, email, password })
       .then(data => {
         if (data.error) {
-          //console.log(JSON.stringify(data))
           setValues({ ...values, error: data.error, success: false });
         } else {
           setValues({
@@ -118,6 +117,7 @@ const Signup = () => {
       {successMessage()}
       {errorMessage()}
       {signUpForm()}
+      <p className="text-white text-center">{JSON.stringify(values)}</p>
     </Base>
   );
 };

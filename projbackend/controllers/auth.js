@@ -1,6 +1,5 @@
 const User = require("../models/user");
 const { check, validationResult } = require("express-validator");
-const { unsubscribe } = require("../routes/auth");
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 const e = require("express");
