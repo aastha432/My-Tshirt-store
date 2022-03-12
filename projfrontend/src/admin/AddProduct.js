@@ -54,7 +54,8 @@ const AddProduct = () => {
   const onSubmit = event => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
-    createaProduct(user._id, token, formData).then(data => {
+    createaProduct(user._id, token, formData)
+    .then(data => {
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
