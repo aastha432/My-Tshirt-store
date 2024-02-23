@@ -1,4 +1,9 @@
 # My-Tshirt-store
 
-Get more than what you pay!
-An absolute budget friendly e-commerce website, with friendly UI, made from scratch using MERN stack, for providing a greater reach of the flee market products of various metropolitan cities to the people at cheaper cost than other e-commerce sites. The site is under developement and has only tshirts for the time being.
+• Developed an e-commerce website using MERN stack.
+• Implemented CRUD operations for users, products, orders, and categories.
+• Established role-based authorization.
+• Designed user and admin dashboards for handling CRUD operations.
+• Employed conditional rendering for routes and optional visibility.
+• Integrated a dummy PayPal payment gateway.
+• Created an authentication and authorization system from scratch using JWT.
